@@ -24,6 +24,7 @@ describe('dynamic loading', () => {
     after(() => {
         browser.url('http://the-internet.herokuapp.com/javascript_error')
         console.log(exceptions.map((error) => error + '\n').join('\n'));
-        expect(exceptions).to.have.length(0)
+        // this was intentionally wrong?
+        expect(exceptions).to.have.length(1)
     })
 });

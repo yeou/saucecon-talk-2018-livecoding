@@ -1,3 +1,5 @@
+import CheckboxPage from './tests/pageobjects/checkbox.page';
+
 exports.config = {
     //
     // ==================
@@ -140,8 +142,13 @@ exports.config = {
      * Hook that gets executed before the suite starts
      * @param {Object} suite suite details
      */
-    // beforeSuite: function (suite) {
-    // },
+      beforeSuite: function (suite) {
+        if (suite.title === 'checkboxes') {
+            CheckboxPage.open();
+            CheckboxPage.firstCheckbox.waitForExist(5000);
+            console.log(CheckboxPage.firstCheckbox);
+        }
+      }
     /**
      * Function to be executed before a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
      * @param {Object} test test details
